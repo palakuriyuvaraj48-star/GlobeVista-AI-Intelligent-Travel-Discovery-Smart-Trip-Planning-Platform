@@ -1,1 +1,0 @@
-import{j as d}from"./index-BVzA1e5D.js";function a({children:r,className:o="",...e}){return d.jsx("div",{className:`overflow-hidden rounded-xl border border-slate-200 bg-white shadow-md transition duration-300 hover:scale-105 hover:shadow-xl ${o}`,...e,children:r})}export{a as C};
