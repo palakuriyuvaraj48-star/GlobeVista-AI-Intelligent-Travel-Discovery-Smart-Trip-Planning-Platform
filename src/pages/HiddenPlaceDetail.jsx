@@ -6,6 +6,7 @@ import StaySection from "../components/hidden/StaySection";
 import BookingPanel from "../components/hidden/BookingPanel";
 import PaymentModal from "../components/hidden/PaymentModal";
 import { findHiddenPlaceByName } from "../data/hiddenPlaces";
+import TripTimeline from "../components/TripTimeline";
 
 const tabs = [
   { key: "things", label: "Things to Do" },
@@ -28,6 +29,56 @@ export default function HiddenPlaceDetail() {
   const [travelers, setTravelers] = useState(2);
   const [selectedNights, setSelectedNights] = useState(2);
   const [coupon, setCoupon] = useState("");
+  const journeySteps = [
+    {
+      title: "Arrival and Local Transfer",
+      description: "Smooth pickup with pre-booked transport options.",
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <path d="M3 16l18-5-18-5 4 5-4 5z" />
+        </svg>
+      ),
+    },
+    {
+      title: "Check-in and Rest",
+      description: "Settle into stays curated for calm surroundings.",
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <path d="M4 21V7l8-4 8 4v14" />
+          <path d="M9 21v-4h6v4" />
+        </svg>
+      ),
+    },
+    {
+      title: "Signature Trail",
+      description: "Local hikes, scenic points, and nature-led activities.",
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <path d="M3 20l7-11 4 6 2-3 5 8H3z" />
+        </svg>
+      ),
+    },
+    {
+      title: "Sunset View",
+      description: "Golden hour experiences with guided stops.",
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <path d="M12 3v4M4 11h16M5 19h14" />
+          <path d="M7 15a5 5 0 0110 0" />
+        </svg>
+      ),
+    },
+    {
+      title: "Dinner and Local Flavors",
+      description: "Curated recommendations for local food.",
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <path d="M4 3v7a4 4 0 004 4v7M10 3v7a4 4 0 01-4 4" />
+          <path d="M14 3h3a3 3 0 013 3v15" />
+        </svg>
+      ),
+    },
+  ];
 
   const sectionRefs = {
     things: useRef(null),
@@ -103,7 +154,7 @@ export default function HiddenPlaceDetail() {
         </div>
       </section>
 
-      <div className="sticky top-16 z-30 border-y border-slate-800 bg-slate-950/90 backdrop-blur-md">
+      <div className="sticky top-16 z-0 border-y border-slate-800 bg-slate-950/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-4 py-3">
           <div className="relative flex gap-2 rounded-full bg-slate-900 p-1">
             {tabs.map((tab) => (
@@ -143,6 +194,12 @@ export default function HiddenPlaceDetail() {
             ))}
           </div>
         </section>
+
+        <TripTimeline
+          title={`Your ${place.name} Journey`}
+          subtitle="A simple flow to guide your trip from arrival to local experiences."
+          steps={journeySteps}
+        />
 
         <section id="book" ref={sectionRefs.book} className="scroll-mt-36 space-y-4">
           <div>
@@ -211,7 +268,7 @@ export default function HiddenPlaceDetail() {
                         destinations: [place.name],
                       })
                     }
-                    className="mt-3 h-10 w-full rounded-lg bg-gradient-to-r from-indigo-600 to-cyan-500 text-sm font-semibold text-white transition duration-300 hover:opacity-90"
+                    className="mt-3 h-10 w-full rounded-lg bg-gradient-to-r from-gv-ocean to-gv-teal text-sm font-semibold text-white transition duration-300 hover:opacity-90"
                   >
                     BOOK PACKAGE
                   </button>

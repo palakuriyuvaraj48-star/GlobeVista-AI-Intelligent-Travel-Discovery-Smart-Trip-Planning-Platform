@@ -1,83 +1,21 @@
-import React from 'react'
-import { exploreData } from '../data/exploreData'
-import useAdvancedFilter from '../hooks/useAdvancedFilter'
-
-const CATEGORIES = ['Hotel', 'Restaurant', 'Rental', 'Transportation', 'Popular Place']
-
-function Stars({ value }) {
-  const rounded = Math.round(value || 0)
-  return <span className="text-amber-500">{`${'\u2605'.repeat(rounded)}${'\u2606'.repeat(5 - rounded)}`}</span>
-}
+import Events from "../components/Events"
+import FamousDishes from "../components/FamousDishes"
+import Pubs from "../components/Pubs"
+import Movies from "../components/Movies"
+import Malls from "../components/Malls"
 
 export default function Explore() {
-  const {
-    activeCategory,
-    searchTerm,
-    selectedFilters,
-    sortOption,
-    filteredData,
-    trending,
-    recommendations,
-    activeFilterConfig,
-    groupedSelectedFilters,
-    setSearchTerm,
-    setSortOption,
-    switchCategory,
-    toggleFilter,
-    resetAll,
-    getRelatedSuggestions,
-  } = useAdvancedFilter(exploreData)
-
   return (
-    <section className="min-h-screen bg-gradient-to-b from-slate-50 via-cyan-50/40 to-white py-10">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <header className="mb-6 rounded-3xl border border-cyan-100 bg-white p-6 shadow-sm">
-          <h1 className="text-xl font-extrabold text-red-600">DEBUG ACTIVE</h1>
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900">Enterprise Dynamic Explore</h1>
-          <p className="mt-2 text-sm text-slate-600">Category-specific filtering, search, trending, and AI-style recommendations</p>
-        </header>
-
-        <div className="mb-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-          <div className="flex flex-wrap gap-2">
-            {CATEGORIES.map((category) => (
-              <button
-                key={category}
-                type="button"
-                onClick={() => switchCategory(category)}
-                className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${
-                  activeCategory === category
-                    ? 'bg-cyan-600 text-white shadow'
-                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="mb-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-12">
-            <div className="md:col-span-7">
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(event) => setSearchTerm(event.target.value)}
-                placeholder="Search by title or location..."
-                className="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm text-slate-700 outline-none focus:border-cyan-500"
-              />
-            </div>
-            <div className="md:col-span-3">
-              <select
-                value={sortOption}
-                onChange={(event) => setSortOption(event.target.value)}
-                className="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm text-slate-700 outline-none focus:border-cyan-500"
-              >
-                <option value="rating_desc">Rating High - Low</option>
-                <option value="price_asc">Price Low - High</option>
-              </select>
-            </div>
-            <div className="md:col-span-2">
+    <div className="p-10 space-y-16">
+      <h1 className="text-3xl font-bold">Explore Experiences</h1>
+      <Events />
+      <FamousDishes />
+      <Pubs />
+      <Movies />
+      <Malls />
+    </div>
+  )
+}
               <button
                 type="button"
                 onClick={resetAll}

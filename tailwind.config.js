@@ -6,6 +6,22 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['"Manrope"', 'sans-serif'],
+        display: ['"Playfair Display"', 'serif'],
+      },
+      colors: {
+        gv: {
+          ocean: '#0b3d5c',
+          teal: '#0f6c74',
+          sunset: '#f97316',
+          coral: '#fb7185',
+          mist: '#f5f7f9',
+          sand: '#f1ebe4',
+          ink: '#0f172a',
+          sky: '#d7eef2',
+        },
+      },
       animation: {
         fadeIn: 'fadeIn 0.6s ease-out forwards',
         fadeOut: 'fadeOut 0.6s ease-out forwards',

@@ -1,0 +1,126 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "explore": "Explorer",
+    "hotels": "Hôtels",
+    "restaurants": "Restaurants",
+    "experiences": "Expériences",
+    "transport": "Transport",
+    "map": "Carte",
+    "ai": "Outils IA",
+    "groupTravel": "Voyage en Groupe",
+    "dashboard": "Tableau de Bord",
+    "savedTrips": "Voyages Sauvegardés",
+    "profile": "Profil",
+    "logout": "Déconnexion"
+  },
+  "home": {
+    "title": "Découvrez le Monde avec GlobeVista AI",
+    "subtitle": "Planifiez des voyages plus intelligents avec la découverte de voyages alimentée par l'IA et des recommandations personnalisées",
+    "searchPlaceholder": "Où voulez-vous aller ?",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "guests": "Invités",
+    "searchButton": "Rechercher des Destinations",
+    "popularDestinations": "Destinations Populaires",
+    "aiTools": "Outils de Voyage IA",
+    "premiumHotels": "Hôtels Premium",
+    "topRestaurants": "Meilleurs Restaurants",
+    "travelStories": "Histoires de Voyage"
+  },
+  "explore": {
+    "title": "Explorer les Destinations",
+    "subtitle": "Découvrez des lieux incroyables autour du monde",
+    "searchPlaceholder": "Rechercher des destinations...",
+    "category": "Catégorie",
+    "priceRange": "Gamme de Prix",
+    "rating": "Note",
+    "explore": "Explorer"
+  },
+  "hotels": {
+    "title": "Hôtels Premium",
+    "subtitle": "Séjours confortables pour chaque voyageur",
+    "perNight": "/ nuit",
+    "bookNow": "Réserver Maintenant"
+  },
+  "restaurants": {
+    "title": "Meilleurs Restaurants",
+    "subtitle": "Profitez des meilleures expériences gastronomiques autour du monde",
+    "cuisine": "Cuisine",
+    "priceRange": "Gamme de Prix",
+    "reserve": "Réserver une Table"
+  },
+  "experiences": {
+    "title": "Expériences de Voyage Incroyables",
+    "subtitle": "Découvrez des activités inoubliables autour du monde",
+    "category": "Catégorie",
+    "duration": "Durée",
+    "groupSize": "Taille du Groupe",
+    "bookNow": "Réserver Maintenant"
+  },
+  "booking": {
+    "title": "Réservez votre Voyage",
+    "subtitle": "Complétez les détails de votre réservation",
+    "destination": "Destination",
+    "hotel": "Hôtel",
+    "checkIn": "Date de Check-in",
+    "checkOut": "Date de Check-out",
+    "guests": "Nombre d'Invités",
+    "tripSummary": "Résumé du Voyage",
+    "priceBreakdown": "Décomposition des Prix",
+    "subtotal": "Sous-total",
+    "taxes": "Taxes et Frais",
+    "total": "Total",
+    "proceedToPayment": "Procéder au Paiement"
+  },
+  "payment": {
+    "title": "Détails de Paiement",
+    "subtitle": "Traitement de paiement sécurisé",
+    "paymentMethod": "Méthode de Paiement",
+    "creditCard": "Carte de Crédit",
+    "debitCard": "Carte de Débit",
+    "upi": "UPI",
+    "paypal": "PayPal",
+    "cardNumber": "Numéro de Carte",
+    "cardHolder": "Nom du Titulaire",
+    "expiryDate": "Date d'Expiration",
+    "cvv": "CVV",
+    "upiId": "ID UPI",
+    "payNow": "Payer Maintenant"
+  },
+  "success": {
+    "title": "Réservation Confirmée !",
+    "subtitle": "Votre voyage a été réservé avec succès",
+    "bookingId": "ID de Réservation",
+    "tripDetails": "Détails du Voyage",
+    "viewTrip": "Voir le Voyage",
+    "goToDashboard": "Aller au Tableau de Bord"
+  },
+  "details": {
+    "title": "Détails de la Destination",
+    "description": "Description",
+    "location": "Emplacement",
+    "rating": "Note",
+    "price": "Prix",
+    "bookNow": "Réserver Maintenant",
+    "addToTrip": "Ajouter au Voyage"
+  },
+  "ai": {
+    "tripPlanner": "Planificateur de Voyage IA",
+    "budgetCalculator": "Calculateur de Budget",
+    "destinationFinder": "Chercheur de Destination",
+    "travelHeatmap": "Carte de Chaleur de Voyage",
+    "tripPredictor": "Prédicteur de Voyage"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "retry": "Réessayer",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "save": "Sauvegarder",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "close": "Fermer"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "navigation": {
+    "home": "होम",
+    "explore": "खोजें",
+    "hotels": "होटल",
+    "restaurants": "रेस्टोरेंट",
+    "experiences": "अनुभव",
+    "transport": "परिवहन",
+    "map": "नक्शा",
+    "ai": "AI उपकरण",
+    "groupTravel": "समूह यात्रा",
+    "dashboard": "डैशबोर्ड",
+    "savedTrips": "सहेजी गई यात्राएं",
+    "profile": "प्रोफाइल",
+    "logout": "लॉगआउट"
+  },
+  "home": {
+    "title": "ग्लोबविस्टा AI के साथ दुनिया की खोज करें",
+    "subtitle": "AI-संचालित यात्रा खोज और व्यक्तिगत अनुशंसाओं के साथ बेहतर यात्राएं योजना बनाएं",
+    "searchPlaceholder": "आप कहाँ जाना चाहते हैं?",
+    "checkIn": "चेक-इन",
+    "checkOut": "चेक-आउट",
+    "guests": "मेहमान",
+    "searchButton": "गंतव्य खोजें",
+    "popularDestinations": "लोकप्रिय गंतव्य",
+    "aiTools": "AI यात्रा उपकरण",
+    "premiumHotels": "प्रीमियम होटल",
+    "topRestaurants": "शीर्ष रेस्टोरेंट",
+    "travelStories": "यात्रा कहानियां"
+  },
+  "explore": {
+    "title": "गंतव्य खोजें",
+    "subtitle": "दुनिया भर में अद्भुत जगहों की खोज करें",
+    "searchPlaceholder": "गंतव्य खोजें...",
+    "category": "श्रेणी",
+    "priceRange": "मूल्य सीमा",
+    "rating": "रेटिंग",
+    "explore": "खोजें"
+  },
+  "hotels": {
+    "title": "प्रीमियम होटल",
+    "subtitle": "हर यात्री के लिए आरामदायक ठहरने",
+    "perNight": "/ रात",
+    "bookNow": "अभी बुक करें"
+  },
+  "restaurants": {
+    "title": "शीर्ष रेस्टोरेंट",
+    "subtitle": "दुनिया भर में सर्वश्रेष्ठ भोजन अनुभवों का आनंद लें",
+    "cuisine": "व्यंजन",
+    "priceRange": "मूल्य सीमा",
+    "reserve": "टेबल आरक्षित करें"
+  },
+  "experiences": {
+    "title": "अद्भुत यात्रा अनुभव",
+    "subtitle": "दुनिया भर में अविस्मरणीय गतिविधियों की खोज करें",
+    "category": "श्रेणी",
+    "duration": "अवधि",
+    "groupSize": "समूह आकार",
+    "bookNow": "अभी बुक करें"
+  },
+  "booking": {
+    "title": "अपनी यात्रा बुक करें",
+    "subtitle": "अपना बुकिंग विवरण पूरा करें",
+    "destination": "गंतव्य",
+    "hotel": "होटल",
+    "checkIn": "चेक-इन तिथि",
+    "checkOut": "चेक-आउट तिथि",
+    "guests": "मेहमानों की संख्या",
+    "tripSummary": "यात्रा सारांश",
+    "priceBreakdown": "मूल्य विवरण",
+    "subtotal": "उप-योग",
+    "taxes": "कर और शुल्क",
+    "total": "कुल",
+    "proceedToPayment": "भुगतान के लिए आगे बढ़ें"
+  },
+  "payment": {
+    "title": "भुगतान विवरण",
+    "subtitle": "सुरक्षित भुगतान प्रसंस्करण",
+    "paymentMethod": "भुगतान विधि",
+    "creditCard": "क्रेडिट कार्ड",
+    "debitCard": "डेबिट कार्ड",
+    "upi": "UPI",
+    "paypal": "PayPal",
+    "cardNumber": "कार्ड नंबर",
+    "cardHolder": "कार्ड धारक का नाम",
+    "expiryDate": "समाप्ति तिथि",
+    "cvv": "CVV",
+    "upiId": "UPI ID",
+    "payNow": "अभी भुगतान करें"
+  },
+  "success": {
+    "title": "बुकिंग पुष्टि!",
+    "subtitle": "आपकी यात्रा सफलतापूर्वक बुक हो गई है",
+    "bookingId": "बुकिंग ID",
+    "tripDetails": "यात्रा विवरण",
+    "viewTrip": "यात्रा देखें",
+    "goToDashboard": "डैशबोर्ड पर जाएं"
+  },
+  "details": {
+    "title": "गंतव्य विवरण",
+    "description": "विवरण",
+    "location": "स्थान",
+    "rating": "रेटिंग",
+    "price": "मूल्य",
+    "bookNow": "अभी बुक करें",
+    "addToTrip": "यात्रा में जोड़ें"
+  },
+  "ai": {
+    "tripPlanner": "AI यात्रा योजनाकार",
+    "budgetCalculator": "बजट कैलकुलेटर",
+    "destinationFinder": "गंतव्य खोजक",
+    "travelHeatmap": "यात्रा हीटमैप",
+    "tripPredictor": "यात्रा पूर्वानुमानक"
+  },
+  "common": {
+    "loading": "लोड हो रहा है...",
+    "error": "त्रुटि",
+    "retry": "पुनः प्रयास करें",
+    "cancel": "रद्द करें",
+    "confirm": "पुष्टि करें",
+    "save": "सहेजें",
+    "edit": "संपादित करें",
+    "delete": "हटाएं",
+    "close": "बंद करें"
+  }
+}

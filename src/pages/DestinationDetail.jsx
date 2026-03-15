@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import BookingPanel from "../components/theme/BookingPanel";
 import PaymentModal from "../components/theme/PaymentModal";
 import { getDestinationMeta } from "../data/themePackages";
+import TripTimeline from "../components/TripTimeline";
 
 export default function DestinationDetail() {
   const { name } = useParams();
@@ -28,6 +29,58 @@ export default function DestinationDetail() {
     inclusions: ["Priority support", "Flexible reschedule"],
     image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200",
   });
+
+  const journeySteps = [
+    {
+      title: "Arrival and Transfer",
+      description: "Airport pickup with local check-in support.",
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <path d="M3 16l18-5-18-5 4 5-4 5z" />
+        </svg>
+      ),
+    },
+    {
+      title: "Hotel Check-in",
+      description: "Settle into your stay and refresh before exploring.",
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <path d="M4 21V7l8-4 8 4v14" />
+          <path d="M9 21v-4h6v4" />
+        </svg>
+      ),
+    },
+    {
+      title: "Signature Experiences",
+      description: "Local landmarks, guided walks, and curated activities.",
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <circle cx="12" cy="12" r="8" />
+          <path d="M12 6v6l4 2" />
+        </svg>
+      ),
+    },
+    {
+      title: "Sunset Viewpoints",
+      description: "Golden hour spots chosen for atmosphere and views.",
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <path d="M12 3v4M4 11h16M5 19h14" />
+          <path d="M7 15a5 5 0 0110 0" />
+        </svg>
+      ),
+    },
+    {
+      title: "Dinner Recommendations",
+      description: "Handpicked restaurants and local food circuits.",
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <path d="M4 3v7a4 4 0 004 4v7M10 3v7a4 4 0 01-4 4" />
+          <path d="M14 3h3a3 3 0 013 3v15" />
+        </svg>
+      ),
+    },
+  ];
 
   return (
     <section className="min-h-screen bg-slate-50 pb-10">
@@ -61,7 +114,7 @@ export default function DestinationDetail() {
                   <button
                     type="button"
                     onClick={() => setBookingPackage(createServicePackage(`${hotel.name} Hotel Stay`, hotel.price))}
-                    className="mt-2 rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white transition duration-300 hover:bg-indigo-700"
+                    className="mt-2 rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-semibold text-white transition duration-300 hover:shadow-md"
                   >
                     Book Hotel
                   </button>
@@ -87,7 +140,7 @@ export default function DestinationDetail() {
                         createServicePackage(`${restaurant.name} Dining Reservation`, restaurant.price)
                       )
                     }
-                    className="mt-2 rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white transition duration-300 hover:bg-indigo-700"
+                    className="mt-2 rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-semibold text-white transition duration-300 hover:shadow-md"
                   >
                     Reserve Restaurant
                   </button>
@@ -95,6 +148,14 @@ export default function DestinationDetail() {
               ))}
             </div>
           </section>
+        </div>
+
+        <div className="mt-6">
+          <TripTimeline
+            title={`Your ${destination.name} Journey`}
+            subtitle="A suggested flow to keep your days balanced and immersive."
+            steps={journeySteps}
+          />
         </div>
 
         <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-5">
@@ -124,7 +185,7 @@ export default function DestinationDetail() {
                   <button
                     type="button"
                     onClick={() => setBookingPackage(pkg)}
-                    className="mt-2 rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white transition duration-300 hover:bg-indigo-700"
+                    className="mt-2 rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-semibold text-white transition duration-300 hover:shadow-md"
                   >
                     Book Now
                   </button>

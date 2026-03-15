@@ -1,9 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
-import App from './App'
+import AppWithRoutes from './AppWithRoutes'
 import './index.css'
+import 'leaflet/dist/leaflet.css'
+import './i18n/i18n'
 import { LanguageProvider } from './LanguageContext'
+import { TripCartProvider } from './context/TripCartContext'
+import { TravelProvider } from './context/TravelContext'
 
 class RootErrorBoundary extends React.Component {
   constructor(props) {
@@ -41,9 +45,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RootErrorBoundary>
       <LanguageProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <TravelProvider>
+          <TripCartProvider>
+            <BrowserRouter>
+              <AppWithRoutes />
+            </BrowserRouter>
+          </TripCartProvider>
+        </TravelProvider>
       </LanguageProvider>
     </RootErrorBoundary>
   </React.StrictMode>,

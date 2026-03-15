@@ -1,0 +1,126 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "explore": "Explorar",
+    "hotels": "Hoteles",
+    "restaurants": "Restaurantes",
+    "experiences": "Experiencias",
+    "transport": "Transporte",
+    "map": "Mapa",
+    "ai": "Herramientas IA",
+    "groupTravel": "Viaje en Grupo",
+    "dashboard": "Panel",
+    "savedTrips": "Viajes Guardados",
+    "profile": "Perfil",
+    "logout": "Cerrar Sesión"
+  },
+  "home": {
+    "title": "Descubre el Mundo con GlobeVista AI",
+    "subtitle": "Planifica viajes más inteligentes con descubrimiento de viajes impulsado por IA y recomendaciones personalizadas",
+    "searchPlaceholder": "¿A dónde quieres ir?",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "guests": "Huéspedes",
+    "searchButton": "Buscar Destinos",
+    "popularDestinations": "Destinos Populares",
+    "aiTools": "Herramientas de Viaje IA",
+    "premiumHotels": "Hoteles Premium",
+    "topRestaurants": "Mejores Restaurantes",
+    "travelStories": "Historias de Viaje"
+  },
+  "explore": {
+    "title": "Explorar Destinos",
+    "subtitle": "Descubre lugares increíbles alrededor del mundo",
+    "searchPlaceholder": "Buscar destinos...",
+    "category": "Categoría",
+    "priceRange": "Rango de Precios",
+    "rating": "Calificación",
+    "explore": "Explorar"
+  },
+  "hotels": {
+    "title": "Hoteles Premium",
+    "subtitle": "Alojamientos cómodos para cada viajero",
+    "perNight": "/ noche",
+    "bookNow": "Reservar Ahora"
+  },
+  "restaurants": {
+    "title": "Mejores Restaurantes",
+    "subtitle": "Disfruta de las mejores experiencias gastronómicas alrededor del mundo",
+    "cuisine": "Cocina",
+    "priceRange": "Rango de Precios",
+    "reserve": "Reservar Mesa"
+  },
+  "experiences": {
+    "title": "Experiencias de Viaje Increíbles",
+    "subtitle": "Descubre actividades inolvidables alrededor del mundo",
+    "category": "Categoría",
+    "duration": "Duración",
+    "groupSize": "Tamaño del Grupo",
+    "bookNow": "Reservar Ahora"
+  },
+  "booking": {
+    "title": "Reserva tu Viaje",
+    "subtitle": "Completa los detalles de tu reserva",
+    "destination": "Destino",
+    "hotel": "Hotel",
+    "checkIn": "Fecha de Check-in",
+    "checkOut": "Fecha de Check-out",
+    "guests": "Número de Huéspedes",
+    "tripSummary": "Resumen del Viaje",
+    "priceBreakdown": "Desglose de Precios",
+    "subtotal": "Subtotal",
+    "taxes": "Impuestos y Tarifas",
+    "total": "Total",
+    "proceedToPayment": "Proceder al Pago"
+  },
+  "payment": {
+    "title": "Detalles de Pago",
+    "subtitle": "Procesamiento de pago seguro",
+    "paymentMethod": "Método de Pago",
+    "creditCard": "Tarjeta de Crédito",
+    "debitCard": "Tarjeta de Débito",
+    "upi": "UPI",
+    "paypal": "PayPal",
+    "cardNumber": "Número de Tarjeta",
+    "cardHolder": "Nombre del Titular",
+    "expiryDate": "Fecha de Vencimiento",
+    "cvv": "CVV",
+    "upiId": "ID UPI",
+    "payNow": "Pagar Ahora"
+  },
+  "success": {
+    "title": "¡Reserva Confirmada!",
+    "subtitle": "Tu viaje ha sido reservado exitosamente",
+    "bookingId": "ID de Reserva",
+    "tripDetails": "Detalles del Viaje",
+    "viewTrip": "Ver Viaje",
+    "goToDashboard": "Ir al Panel"
+  },
+  "details": {
+    "title": "Detalles del Destino",
+    "description": "Descripción",
+    "location": "Ubicación",
+    "rating": "Calificación",
+    "price": "Precio",
+    "bookNow": "Reservar Ahora",
+    "addToTrip": "Agregar al Viaje"
+  },
+  "ai": {
+    "tripPlanner": "Planificador de Viajes IA",
+    "budgetCalculator": "Calculadora de Presupuesto",
+    "destinationFinder": "Buscador de Destinos",
+    "travelHeatmap": "Mapa de Calor de Viajes",
+    "tripPredictor": "Predictor de Viajes"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "retry": "Reintentar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "close": "Cerrar"
+  }
+}

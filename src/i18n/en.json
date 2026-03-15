@@ -1,0 +1,126 @@
+{
+  "navigation": {
+    "home": "Home",
+    "explore": "Explore",
+    "hotels": "Hotels",
+    "restaurants": "Restaurants",
+    "experiences": "Experiences",
+    "transport": "Transport",
+    "map": "Map",
+    "ai": "AI Tools",
+    "groupTravel": "Group Travel",
+    "dashboard": "Dashboard",
+    "savedTrips": "Saved Trips",
+    "profile": "Profile",
+    "logout": "Logout"
+  },
+  "home": {
+    "title": "Discover the World with GlobeVista AI",
+    "subtitle": "Plan smarter trips with AI-powered travel discovery and personalized recommendations",
+    "searchPlaceholder": "Where do you want to go?",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "guests": "Guests",
+    "searchButton": "Search Destinations",
+    "popularDestinations": "Popular Destinations",
+    "aiTools": "AI Travel Tools",
+    "premiumHotels": "Premium Hotels",
+    "topRestaurants": "Top Restaurants",
+    "travelStories": "Travel Stories"
+  },
+  "explore": {
+    "title": "Explore Destinations",
+    "subtitle": "Discover amazing places around the world",
+    "searchPlaceholder": "Search destinations...",
+    "category": "Category",
+    "priceRange": "Price Range",
+    "rating": "Rating",
+    "explore": "Explore"
+  },
+  "hotels": {
+    "title": "Premium Hotels",
+    "subtitle": "Comfortable stays for every traveler",
+    "perNight": "/ night",
+    "bookNow": "Book Now"
+  },
+  "restaurants": {
+    "title": "Top Restaurants",
+    "subtitle": "Enjoy the best food experiences around the world",
+    "cuisine": "Cuisine",
+    "priceRange": "Price Range",
+    "reserve": "Reserve Table"
+  },
+  "experiences": {
+    "title": "Amazing Travel Experiences",
+    "subtitle": "Discover unforgettable activities around the world",
+    "category": "Category",
+    "duration": "Duration",
+    "groupSize": "Group Size",
+    "bookNow": "Book Now"
+  },
+  "booking": {
+    "title": "Book Your Trip",
+    "subtitle": "Complete your booking details",
+    "destination": "Destination",
+    "hotel": "Hotel",
+    "checkIn": "Check-in Date",
+    "checkOut": "Check-out Date",
+    "guests": "Number of Guests",
+    "tripSummary": "Trip Summary",
+    "priceBreakdown": "Price Breakdown",
+    "subtotal": "Subtotal",
+    "taxes": "Taxes & Fees",
+    "total": "Total",
+    "proceedToPayment": "Proceed to Payment"
+  },
+  "payment": {
+    "title": "Payment Details",
+    "subtitle": "Secure payment processing",
+    "paymentMethod": "Payment Method",
+    "creditCard": "Credit Card",
+    "debitCard": "Debit Card",
+    "upi": "UPI",
+    "paypal": "PayPal",
+    "cardNumber": "Card Number",
+    "cardHolder": "Card Holder Name",
+    "expiryDate": "Expiry Date",
+    "cvv": "CVV",
+    "upiId": "UPI ID",
+    "payNow": "Pay Now"
+  },
+  "success": {
+    "title": "Booking Confirmed!",
+    "subtitle": "Your trip has been successfully booked",
+    "bookingId": "Booking ID",
+    "tripDetails": "Trip Details",
+    "viewTrip": "View Trip",
+    "goToDashboard": "Go to Dashboard"
+  },
+  "details": {
+    "title": "Destination Details",
+    "description": "Description",
+    "location": "Location",
+    "rating": "Rating",
+    "price": "Price",
+    "bookNow": "Book Now",
+    "addToTrip": "Add to Trip"
+  },
+  "ai": {
+    "tripPlanner": "AI Trip Planner",
+    "budgetCalculator": "Budget Calculator",
+    "destinationFinder": "Destination Finder",
+    "travelHeatmap": "Travel Heatmap",
+    "tripPredictor": "Trip Predictor"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "close": "Close"
+  }
+}

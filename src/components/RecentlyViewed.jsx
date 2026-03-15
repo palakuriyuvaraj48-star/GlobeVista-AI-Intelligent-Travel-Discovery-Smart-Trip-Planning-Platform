@@ -17,11 +17,12 @@ export default function RecentlyViewed() {
   }, []);
 
   return (
-    <section>
-      <h2 className="mb-6 text-3xl font-bold text-slate-900 dark:text-white">Recently Viewed</h2>
+    <section className="section-divider">
+      <h2 className="mb-2 text-3xl font-semibold tracking-tight text-slate-900">Continue Exploring</h2>
+      <p className="mb-6 text-sm text-slate-600">Pick up right where you left off with your saved discoveries.</p>
 
       {items.length === 0 ? (
-        <div className="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-sm text-slate-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400">
+        <div className="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-sm text-slate-500">
           You have not viewed any hotels or restaurants yet.
         </div>
       ) : (
@@ -29,19 +30,19 @@ export default function RecentlyViewed() {
           {items.map((item) => (
             <article
               key={`${item.category}-${item.id}`}
-              className="overflow-hidden rounded-xl bg-white shadow-md transition duration-300 hover:scale-105 hover:shadow-xl dark:bg-slate-900"
+              className="card-base card-hover group"
             >
               <img src={item.image} alt={item.name} loading="lazy" className="h-52 w-full object-cover" />
               <div className="flex flex-col gap-2 p-4">
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{item.name}</h3>
-                <p className="text-sm text-gray-500 dark:text-slate-400">{item.location}</p>
+                <h3 className="text-lg font-semibold text-slate-900">{item.name}</h3>
+                <p className="text-sm text-slate-500">{item.location}</p>
                 {formatPrice(item) ? (
-                  <p className="text-sm font-semibold text-indigo-600">{formatPrice(item)}</p>
+                  <p className="text-sm font-semibold text-slate-900">{formatPrice(item)}</p>
                 ) : null}
                 <button
                   type="button"
                   onClick={() => navigate(item.category === "Restaurant" ? "/restaurants" : "/hotels")}
-                  className="mt-2 rounded-lg bg-indigo-600 px-4 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-indigo-700"
+                  className="btn-primary mt-2"
                 >
                   View Again
                 </button>

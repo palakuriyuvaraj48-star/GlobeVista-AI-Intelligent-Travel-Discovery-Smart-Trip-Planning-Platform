@@ -2,9 +2,111 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --gv-primary: #0b3d5c;
+  --gv-teal: #0f6c74;
+  --gv-sunset: #f97316;
+  --gv-coral: #fb7185;
+  --gv-ink: #0f172a;
+  --gv-mist: #f5f7f9;
+  --gv-sand: #f1ebe4;
+  --gv-sky: #d7eef2;
+}
+
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Manrope', sans-serif;
+  color: var(--gv-ink);
+  background: linear-gradient(180deg, #f8fafc 0%, #eef6ff 55%, #e8f4ff 100%);
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Playfair Display', serif;
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto max-w-7xl px-6 py-16;
+  }
+
+  .section-title {
+    @apply text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl;
+  }
+
+  .section-subtitle {
+    @apply mt-3 max-w-2xl text-sm text-slate-600;
+  }
+
+  .card-base {
+    @apply overflow-hidden rounded-2xl border border-slate-200/70 bg-white/95 shadow-lg transition duration-300;
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-1 hover:shadow-2xl;
+  }
+
+  .card-image {
+    @apply h-full w-full object-cover transition duration-500 group-hover:scale-110;
+  }
+
+  .btn-primary {
+    @apply rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition duration-300 hover:scale-105 hover:shadow-lg;
+  }
+
+  .btn-ghost {
+    @apply rounded-xl border border-slate-200 bg-white/90 px-5 py-2.5 text-sm font-semibold text-slate-700 transition duration-300 hover:bg-white hover:shadow-sm;
+  }
+
+  .glass-panel {
+    @apply border border-white/40 bg-white/70 backdrop-blur-lg shadow-xl;
+  }
+
+  .section-divider {
+    @apply rounded-3xl bg-gradient-to-r from-blue-50 to-teal-50 p-8;
+  }
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #334155;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: -0.35rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gv-primary), var(--gv-teal));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
+.nav-link:hover {
+  color: #0f766e;
+}
+
+.nav-link.is-active {
+  color: #0f766e;
 }
 
 @keyframes fadeIn {

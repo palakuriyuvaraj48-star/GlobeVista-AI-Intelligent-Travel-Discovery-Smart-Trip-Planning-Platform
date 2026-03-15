@@ -154,7 +154,7 @@ export default function AITripPlanner() {
                   <div key={day.day} className="relative rounded-2xl border border-slate-200 bg-slate-50 p-5">
                     <div className="absolute left-6 top-6 h-full w-px bg-slate-200" />
                     <div className="relative flex gap-4">
-                      <div className="relative z-10 mt-1 h-4 w-4 rounded-full bg-indigo-600" />
+                      <div className="relative z-0 mt-1 h-4 w-4 rounded-full bg-indigo-600" />
                       <div>
                         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">{day.day}</p>
                         <h3 className="mt-1 text-xl font-semibold text-slate-900">{day.title}</h3>

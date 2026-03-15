@@ -122,7 +122,7 @@ export default function BestTime() {
       </section>
 
       {/* Time of Day Filter */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sticky top-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md z-10 rounded-2xl my-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sticky top-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md z-0 rounded-2xl my-8">
         <div className="flex flex-wrap gap-3 justify-center">
           {timeOfDayOptions.map((option) => (
             <button

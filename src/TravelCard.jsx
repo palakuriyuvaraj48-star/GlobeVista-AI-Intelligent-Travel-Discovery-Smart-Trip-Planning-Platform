@@ -69,8 +69,8 @@ export default function TravelCard({
 
   return (
     <>
-      <div className="group overflow-hidden rounded-xl border border-slate-200 bg-white shadow-md transition duration-300 hover:scale-105 hover:shadow-xl dark:border-slate-700 dark:bg-slate-800">
-        <div className="relative aspect-[16/10] overflow-hidden bg-slate-200 dark:bg-slate-700">
+      <div className="card-base card-hover group">
+        <div className="relative aspect-[16/10] overflow-hidden bg-slate-200">
           <img
             src={image || fallbackImage}
             alt={title}
@@ -80,12 +80,12 @@ export default function TravelCard({
                 event.currentTarget.src = fallbackImage
               }
             }}
-            className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
+            className="card-image"
           />
 
           {(badge || category) && (
             <div className="absolute top-3 left-3">
-              <span className="bg-indigo-600 text-white text-xs px-3 py-1 rounded-full font-semibold shadow-lg">
+              <span className="rounded-full bg-gradient-to-r from-teal-500 to-blue-600 px-3 py-1 text-xs font-semibold text-white shadow-lg">
                 {badge || category}
               </span>
             </div>
@@ -93,33 +93,33 @@ export default function TravelCard({
 
           <button
             onClick={handleFavorite}
-            className="absolute top-3 right-3 p-2 rounded-full bg-white/90 dark:bg-slate-800/90 hover:bg-white dark:hover:bg-slate-700 transition shadow-lg"
+            className="absolute top-3 right-3 p-2 rounded-full bg-white/90 hover:bg-white transition shadow-lg"
           >
-            <span className="text-xs font-bold text-slate-700 dark:text-slate-200">{isFavorite ? 'Saved' : 'Save'}</span>
+            <span className="text-xs font-bold text-slate-700">{isFavorite ? 'Saved' : 'Save'}</span>
           </button>
 
           {rating && (
-            <div className="absolute bottom-3 left-3 bg-amber-400 text-slate-900 px-2 py-1 rounded-lg text-sm font-semibold shadow-lg">
-              {'\u2B50'} {rating}
+            <div className="absolute bottom-3 left-3 rounded-lg bg-amber-400 px-2 py-1 text-sm font-semibold text-white shadow-lg">
+              Star {rating}
             </div>
           )}
         </div>
 
         <div className="p-5">
-          <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-1 line-clamp-2">{title}</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-1 line-clamp-2">{title}</h3>
 
           {location && (
-            <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">{location}</p>
+            <p className="text-xs text-slate-500 mb-2">{location}</p>
           )}
 
-          <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 line-clamp-2">{description}</p>
+          <p className="text-sm text-slate-600 mb-3 line-clamp-2">{description}</p>
 
-          <div className="pt-3 border-t border-slate-200 dark:border-slate-700">
+          <div className="pt-3 border-t border-slate-200">
             <div className="flex items-center justify-between gap-3">
               {price ? (
                 <div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">From</p>
-                  <p className="text-lg font-bold text-indigo-600 dark:text-indigo-400">
+                  <p className="text-xs text-slate-500">From</p>
+                  <p className="text-lg font-bold text-slate-900">
                     INR {typeof price === 'number' ? price.toLocaleString() : price}
                   </p>
                 </div>
@@ -132,7 +132,7 @@ export default function TravelCard({
                   href={link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-2 bg-gradient-to-r from-indigo-600 to-cyan-500 text-white rounded-lg text-sm font-medium hover:shadow-lg transition duration-300"
+                  className="btn-primary px-3 py-2"
                 >
                   View
                 </a>
@@ -143,7 +143,7 @@ export default function TravelCard({
               <button
                 type="button"
                 onClick={() => setShowTripDetails(true)}
-                className="px-3 py-2 bg-gradient-to-r from-indigo-600 to-cyan-500 text-white rounded-lg text-sm font-medium hover:shadow-lg transition duration-300"
+                className="btn-primary px-3 py-2"
               >
                 View Details
               </button>
@@ -151,7 +151,7 @@ export default function TravelCard({
                 href={`https://www.google.com/maps/search/?api=1&query=${mapsQuery}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-2 bg-indigo-100 dark:bg-slate-700 text-indigo-700 dark:text-indigo-300 rounded-lg text-sm font-medium hover:bg-indigo-200 dark:hover:bg-slate-600 transition duration-300 text-center"
+                className="btn-ghost px-3 py-2 text-center"
               >
                 View on Map
               </a>
