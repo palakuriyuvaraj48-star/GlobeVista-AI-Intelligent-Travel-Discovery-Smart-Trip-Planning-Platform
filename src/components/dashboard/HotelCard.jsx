@@ -1,7 +1,9 @@
 import { toggleWishlistItem } from "../../utils/wishlistStorage";
 import { addRecentlyViewedItem } from "../../utils/recentlyViewed";
+import { useNavigate } from "react-router-dom";
 
 export default function HotelCard(props) {
+  const navigate = useNavigate();
   const {
     hotel = {},
     nights = 1,
@@ -89,7 +91,7 @@ export default function HotelCard(props) {
         <p className="text-sm leading-6 text-slate-600">{description}</p>
 
         <div className="flex flex-wrap gap-2">
-          {(hotel.amenities || []).slice(0, 3).map((amenity) => (
+          {(hotel.amenities || []).map((amenity) => (
             <span
               key={amenity}
               className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600"
@@ -125,16 +127,6 @@ export default function HotelCard(props) {
               type="button"
               onClick={(event) => {
                 event.stopPropagation();
-                onTrackPrice?.(hotel);
-              }}
-              className="rounded-lg border border-cyan-200 bg-cyan-50 px-4 py-2 text-sm font-semibold text-cyan-700 transition hover:bg-cyan-100"
-            >
-              Track Price
-            </button>
-            <button
-              type="button"
-              onClick={(event) => {
-                event.stopPropagation();
                 addRecentlyViewedItem({
                   id: hotel.id,
                   name: hotel.name,
@@ -143,10 +135,21 @@ export default function HotelCard(props) {
                   price: hotel.pricePerNight,
                   category: "Hotel",
                 });
+                navigate(`/hotel/${hotel.id}`);
+              }}
+              className="rounded-lg border border-cyan-200 bg-cyan-50 px-4 py-2 text-sm font-semibold text-cyan-700 transition hover:bg-cyan-100"
+            >
+              Explore
+            </button>
+            <button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation();
+                navigate(`/booking?type=hotel&id=${hotel.id}`);
               }}
               className="rounded-lg bg-cyan-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cyan-700"
             >
-              View Details
+              Book Now
             </button>
           </div>
         </div>

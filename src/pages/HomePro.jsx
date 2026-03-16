@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import { FaHotel, FaUtensils, FaMapMarkedAlt, FaCalendarAlt, FaShoppingBag, FaGlassMartini, FaCar, FaHistory } from 'react-icons/fa'
 import { destinations } from '../data/destinations'
 import { hotels } from '../data/hotels'
 import { restaurants } from '../data/restaurants'
@@ -97,13 +98,86 @@ export default function HomePro() {
                   </button>
                 ))}
               </div>
-              <Button size="lg" className="w-full text-lg py-4">
-                Search Destinations
+              <Button size="lg" className="w-full text-lg py-4" onClick={() => navigate('/explore')}>
+                Start Exploring
               </Button>
             </Card>
           </motion.div>
         </Container>
       </section>
+
+      {/* QUICK NAVIGATION PANEL */}
+      <Container className="py-8 -mt-16 relative z-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+          {[
+            { icon: <FaHotel />, name: 'Hotels', path: '/hotels' },
+            { icon: <FaUtensils />, name: 'Restaurants', path: '/restaurants' },
+            { icon: <FaMapMarkedAlt />, name: 'Places', path: '/explore' },
+            { icon: <FaCalendarAlt />, name: 'Events', path: '/experiences' },
+            { icon: <FaShoppingBag />, name: 'Malls', path: '/malls' },
+            { icon: <FaGlassMartini />, name: 'Pubs', path: '/pubs' },
+            { icon: <FaCar />, name: 'Transport', path: '/transport' },
+          ].map((item, index) => (
+            <motion.div
+              key={item.name}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              onClick={() => navigate(item.path)}
+              className="flex flex-col items-center justify-center p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl cursor-pointer transition-all hover:-translate-y-1 group border border-gray-100"
+            >
+              <div className="text-3xl mb-2 text-purple-500 group-hover:text-purple-600 transition-colors">
+                {item.icon}
+              </div>
+              <span className="text-sm font-semibold text-gray-700 group-hover:text-purple-600">{item.name}</span>
+            </motion.div>
+          ))}
+        </div>
+      </Container>
+
+      {/* RECENTLY VIEWED */}
+      <Container className="py-8">
+        <Section title="Recently Viewed" subtitle="Jump right back into your travel planning">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card className="flex items-center gap-4 p-4 hover:shadow-md cursor-pointer transition-shadow" onClick={() => navigate('/restaurant/1')}>
+              <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400" alt="Temple Street Tiffin" className="w-20 h-20 rounded-lg object-cover" />
+              <div className="flex-1">
+                <h4 className="font-semibold text-gray-900">Temple Street Tiffin</h4>
+                <p className="text-sm text-gray-500">Chennai</p>
+                <div className="flex items-center gap-1 mt-1">
+                  <span className="text-xs font-medium bg-purple-100 text-purple-600 px-2 py-0.5 rounded-full">Restaurant</span>
+                  <FaHistory className="text-gray-400 text-xs ml-auto" />
+                </div>
+              </div>
+              <Button size="sm" variant="ghost">View Again</Button>
+            </Card>
+            <Card className="flex items-center gap-4 p-4 hover:shadow-md cursor-pointer transition-shadow" onClick={() => navigate('/hotel/1')}>
+              <img src="https://images.unsplash.com/photo-1542314831-c6a4d14d8c85?w=400" alt="Himalayan Vista" className="w-20 h-20 rounded-lg object-cover" />
+              <div className="flex-1">
+                <h4 className="font-semibold text-gray-900">Himalayan Vista Lodge</h4>
+                <p className="text-sm text-gray-500">Manali</p>
+                <div className="flex items-center gap-1 mt-1">
+                  <span className="text-xs font-medium bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full">Hotel</span>
+                  <FaHistory className="text-gray-400 text-xs ml-auto" />
+                </div>
+              </div>
+              <Button size="sm" variant="ghost">View Again</Button>
+            </Card>
+            <Card className="flex items-center gap-4 p-4 hover:shadow-md cursor-pointer transition-shadow" onClick={() => navigate('/explore')}>
+              <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=400" alt="Goa" className="w-20 h-20 rounded-lg object-cover" />
+              <div className="flex-1">
+                <h4 className="font-semibold text-gray-900">Goa Beaches</h4>
+                <p className="text-sm text-gray-500">Goa</p>
+                <div className="flex items-center gap-1 mt-1">
+                  <span className="text-xs font-medium bg-green-100 text-green-600 px-2 py-0.5 rounded-full">Destination</span>
+                  <FaHistory className="text-gray-400 text-xs ml-auto" />
+                </div>
+              </div>
+              <Button size="sm" variant="ghost">View Again</Button>
+            </Card>
+          </div>
+        </Section>
+      </Container>
 
       {/* POPULAR DESTINATIONS */}
       <Container>
@@ -265,6 +339,54 @@ export default function HomePro() {
                 </Card>
               </motion.div>
             ))}
+          </div>
+        </Section>
+      </Container>
+
+      {/* TRAVEL TIPS */}
+      <Container className="bg-blue-50/50 -mx-6 px-6 py-16">
+        <Section title="Travel Tips & Guidelines" subtitle="Essential advice for a smooth and respectful journey">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="p-6 border-t-4 border-green-500 bg-white shadow-md">
+              <h3 className="text-2xl font-bold text-green-700 mb-6 flex items-center gap-2">
+                <span className="bg-green-100 text-green-600 rounded-full w-8 h-8 flex items-center justify-center text-lg">✓</span>
+                Do's
+              </h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="text-green-500 mt-1">●</span>
+                  <span className="text-gray-700"><strong>Respect local customs:</strong> Always be mindful of traditions, greetings, and etiquette in different regions.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-green-500 mt-1">●</span>
+                  <span className="text-gray-700"><strong>Wear comfortable footwear:</strong> You will likely be doing a lot of walking, especially when exploring attractions.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-green-500 mt-1">●</span>
+                  <span className="text-gray-700"><strong>Follow weather conditions:</strong> Pack according to the climate and check daily forecasts for your destination.</span>
+                </li>
+              </ul>
+            </Card>
+            <Card className="p-6 border-t-4 border-red-500 bg-white shadow-md">
+              <h3 className="text-2xl font-bold text-red-700 mb-6 flex items-center gap-2">
+                <span className="bg-red-100 text-red-600 rounded-full w-8 h-8 flex items-center justify-center text-lg">✕</span>
+                Don'ts
+              </h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 mt-1">●</span>
+                  <span className="text-gray-700"><strong>Wear disrespectful clothing:</strong> Dress modestly, especially when visiting religious or conservative sites.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 mt-1">●</span>
+                  <span className="text-gray-700"><strong>Ignore traditions:</strong> Do not mock or disregard local cultural practices or festivals.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 mt-1">●</span>
+                  <span className="text-gray-700"><strong>Enter temples with shoes:</strong> Always remove your footwear before entering temples, mosques, or local homes.</span>
+                </li>
+              </ul>
+            </Card>
           </div>
         </Section>
       </Container>

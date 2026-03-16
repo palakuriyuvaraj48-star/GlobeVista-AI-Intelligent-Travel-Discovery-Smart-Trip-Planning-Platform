@@ -1,0 +1,1 @@
+import{j as o}from"./index-BCN0M_rF.js";const r=(...e)=>e.filter(Boolean).join(" ");function s({className:e,...t}){return o.jsx("input",{className:r("h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-900 outline-none focus:border-purple-500",e),...t})}export{s as I};

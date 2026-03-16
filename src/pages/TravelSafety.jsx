@@ -1,33 +1,45 @@
-import { useState } from 'react';
+import Container from '../components/ui/Container'
+import { FaShieldAlt, FaExclamationTriangle, FaInfoCircle } from 'react-icons/fa'
 
 export default function TravelSafety() {
-  const [destination, setDestination] = useState('');
-  const [alerts, setAlerts] = useState([]);
-
-  const handleAlert = () => {
-    // Dummy alerts
-    setAlerts([
-      { type: 'Weather', msg: 'Heavy rain warning', color: 'bg-yellow-200' },
-      { type: 'Safety', msg: 'Pickpocket advisory', color: 'bg-red-200' },
-      { type: 'Visa', msg: 'Visa required for entry', color: 'bg-blue-200' },
-    ]);
-  };
-
   return (
-    <div className="max-w-2xl mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-4">Travel Safety Alerts</h2>
-      <div className="grid grid-cols-2 gap-4 mb-6">
-        <input type="text" placeholder="Destination" value={destination} onChange={e => setDestination(e.target.value)} className="rounded-xl border px-4 py-2 shadow-md" />
-        <button onClick={handleAlert} className="bg-indigo-600 text-white rounded-xl px-6 py-2 shadow-md hover:bg-indigo-700 transition">Get Alerts</button>
+    <Container className="py-12 max-w-4xl">
+      <div className="mb-10 text-center">
+        <h1 className="text-4xl font-bold text-slate-900 mb-4">Travel Safety Hub</h1>
+        <p className="text-lg text-slate-600">Real-time alerts and guidelines for your upcoming destinations.</p>
       </div>
-      <div className="mt-8 grid gap-4">
-        {alerts.map((alert, idx) => (
-          <div key={idx} className={`rounded-xl shadow-md p-4 ${alert.color} hover:bg-indigo-50 transition`}>
-            <div className="font-bold text-lg mb-2">{alert.type} Alert</div>
-            <div>{alert.msg}</div>
+
+      <div className="space-y-6">
+        <div className="bg-white p-6 rounded-2xl border-l-4 border-l-yellow-500 shadow-sm flex gap-4">
+          <div className="text-yellow-500 text-2xl shrink-0 mt-1"><FaExclamationTriangle /></div>
+          <div>
+            <h3 className="text-lg font-bold text-slate-900">Weather Advisory - Coastal Regions</h3>
+            <p className="text-slate-600 mt-1">Heavy rainfall expected in coastal areas over the next 48 hours. Please check local transport schedules as delays are highly likely.</p>
+            <span className="text-xs text-slate-400 mt-2 block">Updated 2 hours ago</span>
           </div>
-        ))}
+        </div>
+
+        <div className="bg-white p-6 rounded-2xl border-l-4 border-l-blue-500 shadow-sm flex gap-4">
+          <div className="text-blue-500 text-2xl shrink-0 mt-1"><FaInfoCircle /></div>
+          <div>
+            <h3 className="text-lg font-bold text-slate-900">Health Guidelines Update</h3>
+            <p className="text-slate-600 mt-1">No mandatory vaccination requirements for domestic travel. Masks are recommended but not required in public transport.</p>
+            <span className="text-xs text-slate-400 mt-2 block">Updated yesterday</span>
+          </div>
+        </div>
+
+        <div className="bg-white p-6 rounded-2xl border-l-4 border-l-green-500 shadow-sm flex gap-4">
+          <div className="text-green-500 text-2xl shrink-0 mt-1"><FaShieldAlt /></div>
+          <div>
+            <h3 className="text-lg font-bold text-slate-900">General Safety Tips</h3>
+            <ul className="list-disc list-inside mt-2 text-slate-600 space-y-1">
+              <li>Keep digital copies of all important identification.</li>
+              <li>Share your itinerary with a trusted friend or family member.</li>
+              <li>Avoid traveling alone late at night in unfamiliar areas.</li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    </Container>
+  )
 }

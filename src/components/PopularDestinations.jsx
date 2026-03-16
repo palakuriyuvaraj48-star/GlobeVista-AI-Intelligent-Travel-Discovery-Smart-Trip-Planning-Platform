@@ -1,7 +1,10 @@
 import TravelCard from "./TravelCard";
 import { destinations } from "../data/destinations";
+import { useNavigate } from "react-router-dom";
 
 export default function PopularDestinations() {
+  const navigate = useNavigate();
+
   return (
     <section className="px-10 py-16">
       <h2 className="text-3xl font-bold mb-8">Popular Destinations</h2>
@@ -13,6 +16,7 @@ export default function PopularDestinations() {
             image={place.image}
             subtitle={place.country}
             rating={place.rating}
+            onClick={() => navigate(`/destination/${(place.name || place.city).toLowerCase().replace(/\s+/g, '-')}`)}
           />
         ))}
       </div>

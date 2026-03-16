@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { FaMap, FaThLarge, FaHeart, FaRegHeart } from 'react-icons/fa'
 import Container from '../components/ui/Container'
 import Section from '../components/ui/Section'
 import Button from '../components/ui/Button'
@@ -16,6 +17,17 @@ export default function ExplorePage() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [priceRange, setPriceRange] = useState('all')
+  const [viewMode, setViewMode] = useState('grid')
+  const [savedItems, setSavedItems] = useState(new Set())
+
+  const toggleSave = (id) => {
+    setSavedItems(prev => {
+      const newSaved = new Set(prev)
+      if (newSaved.has(id)) newSaved.delete(id)
+      else newSaved.add(id)
+      return newSaved
+    })
+  }
 
   const allItems = [
     ...destinations.map(d => ({ ...d, type: 'destination' })),
@@ -87,14 +99,28 @@ export default function ExplorePage() {
           </div>
         </Card>
 
-        {/* Results Count */}
+        {/* Results Count & View Toggle */}
         <div className="mb-6 flex items-center justify-between">
           <p className="text-gray-600">
             Found {filteredItems.length} results
             {searchTerm && ` for "${searchTerm}"`}
             {selectedCategory !== 'All' && ` in ${selectedCategory}`}
           </p>
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center">
+            <div className="flex bg-gray-100 p-1 rounded-lg mr-4 border border-gray-200">
+              <button 
+                onClick={() => setViewMode('grid')}
+                className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${viewMode === 'grid' ? 'bg-white text-purple-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+              >
+                <FaThLarge /> Grid
+              </button>
+              <button 
+                onClick={() => setViewMode('map')}
+                className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${viewMode === 'map' ? 'bg-white text-purple-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+              >
+                <FaMap /> Map
+              </button>
+            </div>
             <Button variant="ghost" size="sm">
               Sort by Rating
             </Button>
@@ -104,9 +130,19 @@ export default function ExplorePage() {
           </div>
         </div>
 
-        {/* Results Grid */}
+        {/* Results Area */}
+        {viewMode === 'map' ? (
+          <div className="w-full h-[600px] bg-gray-100 rounded-2xl flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
+            <FaMap className="text-6xl text-gray-400 mb-4" />
+            <h3 className="text-2xl text-gray-600 font-semibold mb-2">Interactive Map View</h3>
+            <p className="text-gray-500">Showing {filteredItems.length} locations on the map</p>
+            <Button className="mt-4" onClick={() => setViewMode('grid')}>Return to Grid</Button>
+          </div>
+        ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item) => (
+          {filteredItems.map((item) => {
+            const isSaved = savedItems.has(`${item.type}-${item.id}`)
+            return (
             <Card key={`${item.type}-${item.id}`} className="overflow-hidden group hover:shadow-2xl transition-all duration-300">
               <div className="relative">
                 <img
@@ -153,19 +189,21 @@ export default function ExplorePage() {
                 </div>
 
                 <div className="flex gap-2">
-                  <Link to={`/details/${item.id}`}>
-                    <Button size="sm" className="flex-1">
+                  <Link to={`/details/${item.id}`} className="flex-1">
+                    <Button size="sm" className="w-full">
                       {t('explore.explore')}
                     </Button>
                   </Link>
-                  <Button variant="ghost" size="sm">
-                    Save
+                  <Button variant={isSaved ? "primary" : "ghost"} size="sm" onClick={() => toggleSave(`${item.type}-${item.id}`)}>
+                    {isSaved ? <FaHeart className="text-red-500" /> : <FaRegHeart />}
                   </Button>
                 </div>
               </div>
             </Card>
-          ))}
+            )
+          })}
         </div>
+        )}
 
         {/* No Results */}
         {filteredItems.length === 0 && (

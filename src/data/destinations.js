@@ -178,5 +178,32 @@ export const destinations = [
     description: "Famous for Copacabana beach and Christ the Redeemer statue.",
     bestSeason: "December - March",
     rating: 4.8
+  },
+  {
+    id: 21,
+    name: "Goa",
+    country: "India",
+    image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2",
+    description: "Known for its pristine beaches, vibrant nightlife, and Portuguese heritage.",
+    bestSeason: "November - February",
+    rating: 4.7
+  },
+  {
+    id: 22,
+    name: "Delhi",
+    country: "India",
+    image: "https://images.unsplash.com/photo-1587474260584-136574528ed5",
+    description: "A bustling capital city blending historic monuments with modern life.",
+    bestSeason: "October - March",
+    rating: 4.6
+  },
+  {
+    id: 23,
+    name: "Bangalore",
+    country: "India",
+    image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2",
+    description: "The Silicon Valley of India, known for its pleasant weather and parks.",
+    bestSeason: "September - February",
+    rating: 4.5
   }
 ];

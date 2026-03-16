@@ -11,7 +11,10 @@ export default function HotelDeals() {
             key={hotel.id}
             title={hotel.name}
             image={hotel.image}
-            subtitle={hotel.city}
+            location={hotel.city}
+            description={hotel.description}
+            category="Hotel"
+            price={hotel.price}
             rating={hotel.rating}
           />
         ))}

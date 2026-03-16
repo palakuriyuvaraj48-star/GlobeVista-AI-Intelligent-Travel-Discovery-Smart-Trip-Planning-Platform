@@ -159,7 +159,7 @@ export default function AIRecommendations() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Season</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Climate / Season</label>
                   <div className="grid grid-cols-2 gap-2">
                     {seasons.map(season => (
                       <button
@@ -212,10 +212,10 @@ export default function AIRecommendations() {
 
                 <Button
                   onClick={generateRecommendations}
-                  disabled={!preferences.travelStyle || preferences.interests.length === 0 || loading}
-                  className="w-full"
+                  disabled={!preferences.travelStyle || !preferences.budget || !preferences.season || loading}
+                  className="w-full py-4 text-lg"
                 >
-                  {loading ? 'AI is Analyzing...' : 'Get AI Recommendations'}
+                  {loading ? 'AI is Analyzing...' : 'Recommend Destination'}
                 </Button>
               </div>
             </Card>

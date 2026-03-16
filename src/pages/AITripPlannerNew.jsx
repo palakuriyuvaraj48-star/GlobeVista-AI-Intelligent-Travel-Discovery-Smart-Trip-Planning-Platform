@@ -40,47 +40,47 @@ export default function AITripPlannerNew() {
     // Simulate AI processing
     await new Promise(resolve => setTimeout(resolve, 2000))
     
+    const durationNum = parseInt(plannerData.duration) || 3
+    let computedCost = 15000
+    if (plannerData.destination.toLowerCase() === 'bali' && durationNum === 5) {
+      computedCost = 50000
+    } else {
+      computedCost = durationNum * (plannerData.budget === 'luxury' ? 10000 : plannerData.budget === 'budget' ? 3000 : 6000)
+    }
+
+    const generatedDays = Array.from({ length: durationNum }).map((_, i) => {
+      const day = i + 1
+      if (day === 1) return {
+        day, title: 'Arrival & City Exploration', activities: [
+          { time: '9:00 AM', activity: 'Airport pickup and hotel check-in', cost: 0 },
+          { time: '1:00 PM', activity: 'Lunch at local restaurant', cost: 800 },
+          { time: '3:00 PM', activity: 'Visit main attractions', cost: 1000 },
+          { time: '7:00 PM', activity: 'Welcome dinner', cost: 1500 }
+        ]
+      }
+      if (day === durationNum) return {
+        day, title: 'Farewell & Departure', activities: [
+          { time: '9:00 AM', activity: 'Breakfast and leisure', cost: 500 },
+          { time: '12:00 PM', activity: 'Last minute shopping', cost: 2000 },
+          { time: '3:00 PM', activity: 'Transfer to airport', cost: 500 }
+        ]
+      }
+      return {
+        day, title: 'Local Experiences', activities: [
+          { time: '9:00 AM', activity: 'Guided morning tour', cost: 1200 },
+          { time: '1:00 PM', activity: 'Traditional lunch', cost: 600 },
+          { time: '3:00 PM', activity: 'Museum and cultural sites', cost: 800 },
+          { time: '7:00 PM', activity: 'Evening entertainment', cost: 1800 }
+        ]
+      }
+    })
+
     const generatedItinerary = {
       destination: plannerData.destination,
       duration: plannerData.duration,
       budget: plannerData.budget,
-      days: [
-        {
-          day: 1,
-          title: 'Arrival & City Exploration',
-          activities: [
-            { time: '9:00 AM', activity: 'Airport pickup and hotel check-in', cost: 0 },
-            { time: '11:00 AM', activity: 'City orientation tour', cost: 500 },
-            { time: '1:00 PM', activity: 'Lunch at local restaurant', cost: 800 },
-            { time: '3:00 PM', activity: 'Visit main attractions', cost: 1000 },
-            { time: '7:00 PM', activity: 'Welcome dinner', cost: 1500 }
-          ]
-        },
-        {
-          day: 2,
-          title: 'Top Attractions & Cultural Experience',
-          activities: [
-            { time: '8:00 AM', activity: 'Breakfast at hotel', cost: 300 },
-            { time: '9:30 AM', activity: 'Visit famous landmarks', cost: 1200 },
-            { time: '1:00 PM', activity: 'Traditional lunch', cost: 600 },
-            { time: '3:00 PM', activity: 'Museum and cultural sites', cost: 800 },
-            { time: '6:00 PM', activity: 'Cultural show', cost: 1000 },
-            { time: '8:00 PM', activity: 'Dinner at specialty restaurant', cost: 1200 }
-          ]
-        },
-        {
-          day: 3,
-          title: 'Food & Local Experiences',
-          activities: [
-            { time: '9:00 AM', activity: 'Food tour of the city', cost: 1500 },
-            { time: '12:00 PM', activity: 'Cooking class', cost: 2000 },
-            { time: '3:00 PM', activity: 'Local market shopping', cost: 800 },
-            { time: '5:00 PM', activity: 'Sunset viewpoint visit', cost: 400 },
-            { time: '7:00 PM', activity: 'Farewell dinner', cost: 1800 }
-          ]
-        }
-      ],
-      totalCost: 15000,
+      days: generatedDays,
+      totalCost: computedCost,
       tips: [
         'Book accommodations in advance for better rates',
         'Try local street food for authentic experiences',

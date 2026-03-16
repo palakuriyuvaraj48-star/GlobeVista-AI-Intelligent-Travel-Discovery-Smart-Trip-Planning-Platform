@@ -11,7 +11,9 @@ export default function RestaurantDiscovery() {
             key={rest.id}
             title={rest.name}
             image={rest.image}
-            subtitle={rest.city + " • " + rest.cuisine}
+            location={rest.city}
+            description={`Signature ${rest.cuisine} menu and chef specials.`}
+            category={rest.cuisine}
             rating={rest.rating}
           />
         ))}

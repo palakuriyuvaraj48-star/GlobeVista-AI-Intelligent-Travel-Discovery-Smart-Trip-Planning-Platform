@@ -49,9 +49,22 @@ export default function TravelCard({
         {isBookmarked ? 'Saved' : 'Save'}
       </button>
 
+      {image ? (
+        <div className="mb-4 overflow-hidden rounded-xl">
+          <img
+            src={image}
+            alt={cardTitle || 'Travel highlight'}
+            loading="lazy"
+            className="h-40 w-full object-cover transition duration-300 group-hover:scale-105"
+          />
+        </div>
+      ) : null}
+
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-cyan-700">{cardCategory}</p>
+          {cardCategory ? (
+            <p className="text-xs font-semibold uppercase tracking-wide text-cyan-700">{cardCategory}</p>
+          ) : null}
           <h3 className="mt-1 text-lg font-semibold text-slate-900">{cardTitle}</h3>
           <p className="text-sm text-slate-500">{cardLocation}</p>
         </div>
@@ -66,7 +79,7 @@ export default function TravelCard({
 
       <div className="mt-2 grid grid-cols-2 gap-2 text-xs text-slate-500">
         <p>Reviews: {cardReviewCount}</p>
-        {typeof cardPrice === 'number' ? <p>Price: {'\u20B9'}{cardPrice.toLocaleString()}</p> : <p>Price: N/A</p>}
+        {typeof cardPrice === 'number' ? <p>Price: {'\u20B9'}{cardPrice.toLocaleString()}</p> : null}
         {typeof cardTrendingScore === 'number' ? <p>Trending: {cardTrendingScore.toFixed(1)}</p> : null}
         {typeof cardAiScore === 'number' ? <p>AI: {cardAiScore.toFixed(3)}</p> : null}
       </div>
@@ -83,6 +96,13 @@ export default function TravelCard({
           </ul>
         </div>
       ) : null}
+
+      <button
+        type="button"
+        className="mt-4 w-full rounded-full border border-slate-200 bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:translate-y-[-1px] hover:shadow-lg"
+      >
+        View Details
+      </button>
 
       {children}
 

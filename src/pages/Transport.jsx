@@ -26,7 +26,7 @@ const transportOptions = [
     type: 'Train',
     name: 'Rajdhani Express',
     route: 'Delhi to Mumbai',
-    price: 1800,
+    price: 3590,
     duration: '16h 00m',
     departure: '17:00',
     arrival: '09:00',

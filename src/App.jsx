@@ -51,7 +51,7 @@ const Help = lazy(() => import('./pages/Help'))
 const DestinationsPopular = lazy(() => import('./pages/DestinationsPopular'))
 const DestinationsHidden = lazy(() => import('./pages/DestinationsHidden'))
 const DestinationsStates = lazy(() => import('./pages/DestinationsStates'))
-const DestinationCity = lazy(() => import('./pages/DestinationCity'))
+const DestinationPage = lazy(() => import('./pages/DestinationPage'))
 
 // Explore
 const Explore = lazy(() => import('./pages/Explore'))
@@ -125,7 +125,7 @@ function App() {
                 <Route path="/destinations/popular" element={<DestinationsPopular />} />
                 <Route path="/destinations/hidden" element={<DestinationsHidden />} />
                 <Route path="/destinations/states" element={<DestinationsStates />} />
-                <Route path="/destination/:city" element={<DestinationCity />} />
+                <Route path="/destination/:city" element={<DestinationPage />} />
 
                 {/* Fallback */}
                 <Route path="*" element={<NotFound />} />

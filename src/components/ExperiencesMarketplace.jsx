@@ -11,8 +11,11 @@ export default function ExperiencesMarketplace() {
             key={exp.id}
             title={exp.name}
             image={exp.image}
-            subtitle={exp.description}
+            location={exp.location}
+            description={exp.description}
+            category="Experience"
             rating={exp.rating}
+            price={exp.price}
           />
         ))}
       </div>
