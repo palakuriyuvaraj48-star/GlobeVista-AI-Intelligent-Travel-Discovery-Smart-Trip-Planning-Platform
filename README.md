@@ -85,10 +85,10 @@ src/
 1. Clone the repository
 ```bash
 git clone https://github.com/yourusername/globavista-ai.git
-cd globavista-ai
+cd travel
 ```
 
-2. Install dependencies
+2. Install dependencies from the workspace root
 ```bash
 npm install
 ```
@@ -104,7 +104,7 @@ cp .env.example .env
 npm run dev
 ```
 
-5. Open your browser and visit `http://localhost:5173`
+5. Open your browser and visit `http://localhost:3000`
 
 ## 🌍 Environment Variables
 
@@ -134,10 +134,9 @@ VITE_MAPBOX_TOKEN=your_mapbox_access_token
 
 ## 🔧 Available Scripts
 
-- `npm run dev` - Start development server
+- `npm run dev` - Start the Vite development server on port 3000
 - `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
+- `npm run preview` - Preview the production build
 
 ## 🎨 Design System
 

@@ -130,6 +130,54 @@ export default function HotelDetailsPage() {
               </div>
             </Card>
 
+            {/* Feature 6: Accessibility Guide Card */}
+            <Card className="p-6 mb-8 border border-slate-200 bg-white">
+              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                ♿ Accessibility & Support Guide
+              </h3>
+              <p className="text-xs text-slate-500 mb-4">GlobeVista verified accessibility checklist for disabled, senior, and family travelers.</p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-semibold text-slate-700">
+                <div className="space-y-2">
+                  <div className="flex justify-between border-b pb-2 border-slate-100">
+                    <span>Wheelchair Access:</span>
+                    <span className="text-green-600">✓ Ramp & Wide Entrances</span>
+                  </div>
+                  <div className="flex justify-between border-b pb-2 border-slate-100">
+                    <span>Elevators:</span>
+                    <span className="text-green-600">✓ Accessible Braille Panels</span>
+                  </div>
+                  <div className="flex justify-between border-b pb-2 border-slate-100">
+                    <span>Accessible Parking:</span>
+                    <span className="text-green-600">✓ Reserved front parking bays</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Accessible Restrooms:</span>
+                    <span className="text-green-600">✓ Side grab bars present</span>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="flex justify-between border-b pb-2 border-slate-100">
+                    <span>Family & Kids Facilities:</span>
+                    <span className="text-green-600">✓ Kids playroom & pool</span>
+                  </div>
+                  <div className="flex justify-between border-b pb-2 border-slate-100">
+                    <span>Senior-friendly seating:</span>
+                    <span className="text-green-600">✓ Quiet garden level rooms</span>
+                  </div>
+                  <div className="flex justify-between border-b pb-2 border-slate-100">
+                    <span>Baby Changing Stations:</span>
+                    <span className="text-green-600">✓ Ground floor family rooms</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Service Animal Support:</span>
+                    <span className="text-green-600">✓ Pets / Guide Dogs allowed</span>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
             {/* Room Types */}
             <Card className="p-6 mb-8">
               <h3 className="text-xl font-semibold mb-4">Room Types</h3>

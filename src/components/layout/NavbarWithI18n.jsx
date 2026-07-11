@@ -63,6 +63,12 @@ const navigation = [
       { name: 'Photo Spot Finder', href: '/photo-spot-finder' },
       { name: 'Travel Safety', href: '/travel-safety' },
       { name: 'Trending Destinations', href: '/trending-destinations' },
+      { name: 'AI Packing List', href: '/ai/packing-list' },
+      { name: 'AI Translator', href: '/ai/translator' },
+      { name: 'Local Guides', href: '/ai/guides' },
+      { name: 'Group Trip Planner', href: '/group-travel' },
+      { name: 'AI Travel Journal', href: '/trip-story' },
+      { name: 'Local Business Hub', href: '/local-business-hub' },
       { name: 'Wishlist', href: '/saved-trips' }
     ]
   },
@@ -81,6 +87,14 @@ export default function NavbarWithI18n() {
   const location = useLocation()
   const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [notifOpen, setNotifOpen] = useState(false)
+  
+  const notificationsList = [
+    { id: 1, text: "🌧️ Rain expected in 30 minutes at Goa destination.", time: "Just now" },
+    { id: 2, text: "🏰 Taj Mahal wait time decreased by 15 minutes.", time: "12 mins ago" },
+    { id: 3, text: "🚗 North Beach parking lot is currently 98% full.", time: "24 mins ago" },
+    { id: 4, text: "🌅 Sunset golden hour begins in 20 minutes.", time: "45 mins ago" }
+  ]
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng)
@@ -134,6 +148,37 @@ export default function NavbarWithI18n() {
             </div>
 
             <div className="hidden lg:flex items-center gap-3 shrink-0 ml-4">
+              {/* Feature 9: Smart Notifications Bell */}
+              <div className="relative">
+                <button
+                  onClick={() => setNotifOpen(!notifOpen)}
+                  className="relative p-2 rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center"
+                  title="Smart Travel Alerts"
+                >
+                  <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  </svg>
+                  <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-red-500 rounded-full border border-white" />
+                </button>
+
+                {notifOpen && (
+                  <div className="absolute top-full right-0 mt-2 w-80 bg-white rounded-2xl shadow-xl border border-gray-200 py-3 px-4 z-50 animate-fadeIn">
+                    <h4 className="font-extrabold text-xs text-slate-800 border-b pb-2 mb-2 flex justify-between items-center">
+                      <span>🔔 AI Smart Alerts</span>
+                      <span className="text-[10px] text-purple-600 uppercase tracking-wide font-black">Real-Time</span>
+                    </h4>
+                    <div className="space-y-2.5 max-h-72 overflow-y-auto">
+                      {notificationsList.map(n => (
+                        <div key={n.id} className="p-2 hover:bg-slate-50 rounded-xl transition-colors text-xs border border-slate-100 bg-slate-50/30">
+                          <p className="font-semibold text-slate-800 leading-normal">{n.text}</p>
+                          <span className="text-[10px] text-slate-400 font-bold block mt-1">{n.time}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
               <div className="relative">
                 <button
                   onClick={() => setLanguageDropdownOpen(!languageDropdownOpen)}

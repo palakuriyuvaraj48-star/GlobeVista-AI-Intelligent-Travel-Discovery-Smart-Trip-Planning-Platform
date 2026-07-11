@@ -1,1 +1,0 @@
-import{j as n}from"./index-CL79TxF6.js";const x=(...o)=>o.filter(Boolean).join(" ");function r({children:o,className:t}){return n.jsx("div",{className:x("mx-auto max-w-7xl px-6 py-16",t),children:o})}export{r as C};

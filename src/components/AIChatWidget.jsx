@@ -16,15 +16,78 @@ export default function AIChatWidget() {
     { id: 'welcome', role: 'assistant', text: 'Ask GlobeVista AI anything about travel.' },
   ])
 
+  const getAIAnswer = (query) => {
+    const text = query.toLowerCase()
+    if (text.includes('plan') || text.includes('itinerary') || text.includes('schedule')) {
+      return "📅 I can create a detailed itinerary for you! Open the 'AI Trip Planner' from the menu to input your destination, days, budget, and travel style to get morning, afternoon, and evening schedules with Google Maps routing."
+    }
+    if (text.includes('place') || text.includes('destination') || text.includes('suggest')) {
+      return "📍 For beach escapes, I suggest Goa or Bali. For culture and history, Paris or Jaipur are excellent. For nature and cooling breezes, try Manali or Munnar. Check out 'Explore Places' for more recommendations!"
+    }
+    if (text.includes('restaurant') || text.includes('food') || text.includes('dine') || text.includes('eat')) {
+      return "🍴 I recommend trying local cuisines! In Delhi, visit 'Indian Accent'. In Jaipur, 'Suvarna Mahal' offers heritage dining. You can filter restaurants in the 'Restaurants' tab by Vegetarian, Vegan, Halal, or Jain options."
+    }
+    if (text.includes('crowd') || text.includes('busy') || text.includes('queue') || text.includes('avoid')) {
+      return "📊 Avoid crowd peaks! In Paris or Bali, the crowd density is High during sunsets. The 'Best Time to Visit' tab on any destination page details hourly trends. Early morning (6:00 AM - 8:30 AM) is generally 🟢 Low Crowd."
+    }
+    if (text.includes('budget') || text.includes('cost') || text.includes('expense') || text.includes('split')) {
+      return "💰 Travel smart! Use the 'AI Budget Calculator' to estimate hotels, food, transport, fuel, parking, and attractions. It includes a progress bar showing budget utilization and suggests eco-friendly savings tips."
+    }
+    if (text.includes('weather') || text.includes('rain') || text.includes('forecast') || text.includes('temp')) {
+      return "🌦️ Check out the 'Weather Assistant' tool. It details live temperatures, UV indexes, AQI metrics, and gives specific clothing suggestions (e.g. breathable linen shirts for Goa, heavy down jackets for winter Manali)."
+    }
+    if (text.includes('safety') || text.includes('hospital') || text.includes('police') || text.includes('emergency')) {
+      return "🛡️ Your safety is priority! The 'Travel Safety Hub' lists safety scores out of 100, crime alerts, night safety, and women safety advisories along with local police and hospital numbers (like GMC Hospital in Goa)."
+    }
+    if (text.includes('custom') || text.includes('phrase') || text.includes('dress') || text.includes('culture')) {
+      return "⛩️ Local Customs: When visiting temples in Bali or shrines in India, always wear a sash/sarong (usually provided) and dress conservatively. Use the 'AI Translator' to learn common travel phrases in Hindi, Spanish, or French."
+    }
+    if (text.includes('hidden') || text.includes('gem') || text.includes('secret') || text.includes('nature')) {
+      return "💎 Discover hidden gems! Go to the 'Hidden Places' tab to find scenic, uncrowded attractions like Sidemen Valley in Bali or Cola Beach lagoon in South Goa, perfect for peaceful nature walks."
+    }
+    if (text.includes('transport') || text.includes('route') || text.includes('bus') || text.includes('metro') || text.includes('taxi')) {
+      return "🚗 Consult the 'AI Live Route Assistant' under the Transport tab. It gives walking directions, bus fares, metro line maps, taxi estimates (like UberX €12-18 in Paris), and shows traffic status."
+    }
+    return "🤖 I am here to help you plan trips, discover restaurants, check safety scores, translate phrases, and find hidden gems. Try asking: 'Suggest places in Bali', 'Weather guidelines for Goa', or 'Avoid crowds at Taj Mahal'."
+  }
+
+  const [isListening, setIsListening] = useState(false)
+
+  const triggerVoiceCompanion = () => {
+    setIsListening(true)
+    setTimeout(() => {
+      setIsListening(false)
+      const voiceMocks = [
+        "Avoid crowds at Taj Mahal",
+        "Plan my itinerary for Goa",
+        "Weather forecast for Bali",
+        "Suggest restaurants in Jaipur"
+      ]
+      const prompt = voiceMocks[Math.floor(Math.random() * voiceMocks.length)]
+      handleSend(prompt)
+    }, 2000)
+  }
+
   const handleSend = (text) => {
     const query = text.trim()
     if (!query) return
+    const answer = getAIAnswer(query)
     setMessages((current) => [
       ...current,
       { id: `${Date.now()}-user`, role: 'user', text: query },
-      { id: `${Date.now()}-assistant`, role: 'assistant', text: getResponse(query) },
+      { id: `${Date.now()}-assistant`, role: 'assistant', text: answer },
     ])
     setInput('')
+
+    // Playback AI voice response audibly
+    try {
+      window.speechSynthesis.cancel()
+      const cleanText = answer.replace(/[\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF]/g, '')
+      const utterance = new SpeechSynthesisUtterance(cleanText)
+      window.speechSynthesis.speak(utterance)
+    } catch (e) {
+      console.error("Text-to-speech error: ", e)
+    }
   }
 
   return (
@@ -113,9 +176,22 @@ export default function AIChatWidget() {
                 onKeyDown={(event) => {
                   if (event.key === 'Enter') handleSend(input)
                 }}
-                placeholder="Ask anything about travel..."
-                className="flex-1 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                placeholder={isListening ? "Listening to your voice..." : "Ask anything about travel..."}
+                disabled={isListening}
+                className="flex-1 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 font-medium"
               />
+              <button
+                type="button"
+                onClick={triggerVoiceCompanion}
+                className={`rounded-xl px-3 flex items-center justify-center text-lg shadow-sm border transition-colors ${
+                  isListening 
+                    ? 'bg-red-100 text-red-600 border-red-200 animate-pulse'
+                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-200'
+                }`}
+                title="AI Voice Travel Companion"
+              >
+                🎙️
+              </button>
               <button
                 type="button"
                 onClick={() => handleSend(input)}

@@ -135,6 +135,72 @@ export default function RestaurantDetailsPage() {
               </div>
             </Card>
 
+            {/* AI Recommendation Panel */}
+            <Card className="p-6 mb-8 border border-purple-100 bg-purple-50/30">
+              <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+                🤖 AI Restaurant Insights
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-700">
+                <div className="space-y-3">
+                  <div>
+                    <span className="font-bold text-slate-800">Dietary & Style Suitability:</span>
+                    <div className="flex flex-wrap gap-1.5 mt-1.5">
+                      {['Vegetarian', 'Vegan', 'Halal', 'Jain', 'Family Friendly', 'Couples', 'Kids', 'Luxury', 'Local Cuisine'].map(tag => (
+                        <span key={tag} className="bg-purple-100 text-purple-700 text-xs px-2.5 py-1 rounded-full font-semibold">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <span className="font-bold text-slate-800">Popular Dishes:</span>
+                    <p className="mt-1 font-medium text-slate-600">Truffle Naan, Smoked Paneer Tikka, Dal Makhani, Biryani</p>
+                  </div>
+
+                  <div>
+                    <span className="font-bold text-slate-800">♿ Accessibility & Family Amenities:</span>
+                    <ul className="list-disc list-inside mt-1.5 space-y-1 text-xs text-slate-600 font-medium">
+                      <li>Wheelchair-accessible entrance, ramp, and spacious seating</li>
+                      <li>Elevator accessible to all dining levels</li>
+                      <li>Family-friendly restrooms with baby changing tables</li>
+                      <li>Dedicated senior-friendly quiet seating zone</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="space-y-3 bg-white p-4 rounded-2xl border border-slate-100 shadow-xs">
+                  <div className="flex justify-between border-b pb-2 border-slate-100">
+                    <span className="text-slate-500 font-medium">Opening Hours:</span>
+                    <span className="font-bold text-slate-900">12:00 PM - 11:30 PM</span>
+                  </div>
+                  <div className="flex justify-between border-b pb-2 border-slate-100">
+                    <span className="text-slate-500 font-medium">Estimated Cost:</span>
+                    <span className="font-bold text-slate-900">₹2,800 for two</span>
+                  </div>
+                  <div className="flex justify-between border-b pb-2 border-slate-100">
+                    <span className="text-slate-500 font-medium">Average Waiting Time:</span>
+                    <span className="font-bold text-yellow-600">15 - 20 mins</span>
+                  </div>
+                  <div className="flex justify-between border-b pb-2 border-slate-100">
+                    <span className="text-slate-500 font-medium">Distance from Center:</span>
+                    <span className="font-bold text-indigo-600">1.8 km</span>
+                  </div>
+                  <div className="pt-2 text-center">
+                    <a 
+                      href={`https://maps.google.com/?q=${encodeURIComponent(restaurant.name + ', ' + restaurant.city)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block w-full bg-slate-900 text-white font-bold py-2 rounded-xl text-xs hover:bg-slate-800 transition"
+                    >
+                      Get Google Maps Directions ↗
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
             {/* Menu */}
             <Card className="p-6 mb-8">
               <h3 className="text-xl font-semibold mb-4">Our Menu</h3>

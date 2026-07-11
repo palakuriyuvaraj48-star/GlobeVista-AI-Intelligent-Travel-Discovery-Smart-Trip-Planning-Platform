@@ -1,6 +1,8 @@
-export default function BestTime({ months, highlights }) {
+import CrowdPredictor from '../CrowdPredictor'
+
+export default function BestTime({ months, highlights, destinationName }) {
   return (
-    <div className="py-8">
+    <div className="py-8 space-y-12">
       <h2 className="text-3xl font-bold text-slate-900 mb-8">Best Time to Visit</h2>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -38,6 +40,8 @@ export default function BestTime({ months, highlights }) {
           </ul>
         </div>
       </div>
+
+      <CrowdPredictor destination={destinationName} />
     </div>
   )
 }

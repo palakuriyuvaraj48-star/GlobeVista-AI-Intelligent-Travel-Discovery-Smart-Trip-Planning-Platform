@@ -1,0 +1,1 @@
+import{j as t}from"./index-DeZgwIyH.js";const n=(...o)=>o.filter(Boolean).join(" ");function a({children:o,className:r}){return t.jsx("div",{className:n("rounded-2xl bg-white shadow-lg transition duration-300 hover:shadow-2xl",r),children:o})}export{a as C};

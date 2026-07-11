@@ -47,6 +47,11 @@ const TravelSafety = lazy(() => import('./pages/TravelSafety'))
 const TrendingDestinations = lazy(() => import('./pages/TrendingDestinations'))
 const DressCode = lazy(() => import('./pages/DressCode'))
 const Help = lazy(() => import('./pages/Help'))
+const AIPackingList = lazy(() => import('./pages/AIPackingList'))
+const AITranslator = lazy(() => import('./pages/AITranslator'))
+const LocalGuides = lazy(() => import('./pages/LocalGuides'))
+const TripStory = lazy(() => import('./pages/TripStory'))
+const LocalBusinessHub = lazy(() => import('./pages/LocalBusinessHub'))
 
 // Page wrapper for animations
 function PageWrapper({ children }) {
@@ -256,6 +261,11 @@ export default function AppWithRoutes() {
             <Route path="/trending-destinations" element={<PageWrapper><TrendingDestinations /></PageWrapper>} />
             <Route path="/dress-code" element={<PageWrapper><DressCode /></PageWrapper>} />
             <Route path="/help" element={<PageWrapper><Help /></PageWrapper>} />
+            <Route path="/ai/packing-list" element={<PageWrapper><AIPackingList /></PageWrapper>} />
+            <Route path="/ai/translator" element={<PageWrapper><AITranslator /></PageWrapper>} />
+            <Route path="/ai/guides" element={<PageWrapper><LocalGuides /></PageWrapper>} />
+            <Route path="/trip-story" element={<PageWrapper><TripStory /></PageWrapper>} />
+            <Route path="/local-business-hub" element={<PageWrapper><LocalBusinessHub /></PageWrapper>} />
             
             {/* Fallback route */}
             <Route path="*" element={

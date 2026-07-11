@@ -47,7 +47,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <LanguageProvider>
         <TravelProvider>
           <TripCartProvider>
-            <BrowserRouter>
+            <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
               <AppWithRoutes />
             </BrowserRouter>
           </TripCartProvider>
